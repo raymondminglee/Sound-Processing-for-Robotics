@@ -1,37 +1,8 @@
-## Welcome to GitHub Pages
+# Introduction
+---
+This project aims at improving current sound processing methods for robotics applications. First, independent source signals from the recordings were extracted; then, the incidence angles of those sound sources were found. Several digital signal processing techniques are incorporated in the proposed method: the Frequency-Domain Independent Component Analysis(FDICA) is used to extract independent sound sources from sound mixtures, and the Time Delay of Arrival(TDOA) method is used to perform the source localization. 
+This paper will detail the implementation of signal-processing techniques using MATLAB and the design of the octahedron microphone array.  
+Attempts have been made by various scholars and organizations to solve this “Cocktail Party Problem”, which consists of extracting one sound from a mixture of sounds. This extraction, often referred to as the “blind source separation”, is usually solved by using the Independent Component Analysis(ICA).  
+After separating each sound source, the location of those sources can be determined. This can be done using the Time Delay of Arrival (TDOA) method: since there are multiple microphones in an array, the sound intensities and phase information captured by an individual microphone is different from the others. The time difference of arrival on microphone pairs can be used to approximate corresponding angles of incidence, and the angles calculated can be used to approximate the possible source location.  
+This project details the design of the apparatus, (including the microphone selection, the microphone array geometry, and the data acquisition device), the system flow of acquiring signals, processing signals to perform source separation and localization, and the discussion of the experimental result and future work. 
 
-You can use the [editor on GitHub](https://github.com/raymondminglee/Sound-Processing-for-Robotics/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/raymondminglee/Sound-Processing-for-Robotics/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
