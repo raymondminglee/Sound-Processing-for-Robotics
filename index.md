@@ -64,7 +64,7 @@ The accuracy of the single-source localization method was obtained through exper
 For source extractions, a total of 5 sources were estimated. For each extracted source signal, we listened and subjectively identified which speaker the sound best represents.For the trail shown below, Speaker A is a female participant, and speaker B is a male participant.  
 
 The following graphs show the comparison between the participants’ voices and extracted source signals in time-domain.
-<img src="pic/source.png?raw=true"/>
+<img src="pic/source.PNG?raw=true"/>
 
 the extracted source signals resemble the actual signal in time-domain. This resemblance indicates that the ICA algorithm can extract sound source successfully. 
 
@@ -79,7 +79,7 @@ For one of the trails, during which two speakers are talking at the same time wh
 |Speaker B|	56|	-56|99|	11|
 |Speaker A|	228|-3|	180|.-75|
 
-<img src="pic/loc.png?raw=true"/>
+<img src="pic/loc.PNG?raw=true"/>
 
 The accuracy of the multi-source localization is highly dependent on the quality of the ICA extracted signal. When the extracted signals can be identified subjectively as one of the known sound sources, the error between the actual and the estimated angle are relatively small (less than 10 degrees). However, for example, the above trail doesn’t have a clear extracted signal for Speaker B. Thus, the error is relatively large. The elevation angle is calculated using the similar methodology. However, its error doesn’t correspond to the quality of the ICA algorithm. 
 
