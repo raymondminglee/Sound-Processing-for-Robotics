@@ -30,10 +30,10 @@ The FDICA is conducted in the following sequence: first, the signals are transfo
 ## Source Localization Using TDOA
 Sound localization using TDOA is one of the most conventional ways to localize sound a source. Since the microphone array configures microphones such that the distance between any two is not zero, a specific sound signal will arrive at each microphone at a slightly different time. The incidence angle of a sound source could be estimated using this time difference, under the assumption that sound travels at a constant speed in air. 
 
-## Cross Correlation
+### Cross Correlation
 The accuracy of the time delay between signals from a pair of microphones is a key parameter to implement the above localization method. This time delay is found by performing a cross-correlation function in MATLAB.  
  
-## Multi-Source Localization
+### Multi-Source Localization
 Multi-source localization is achieved by implementing TDOA localization method to both extracted source signals and microphone signals.  
 After ICA, each extracted source signal is first compared with the four signals captured from the microphones on the mid-plane.  
 Whichever microphone signal that has the highest correlation with the extracted source means that this microphone is the closest to the source location. Then we use cross-correlation again to find the time delay between the extracted source and the adjacent microphones. Noted that for multi-source localization, the time delay of arrival is not simply the time delay between two microphone signals, but time delay between two microphone signals relative to the extracted source signal.  
