@@ -61,6 +61,30 @@ The accuracy of the single-source localization method was obtained through exper
 
 
 ## Source Extraction Result
+For source extractions, a total of 5 sources were estimated. For each extracted source signal, we listened and subjectively identified which speaker the sound best represents.For the trail shown below, Speaker A is a female participant, and speaker B is a male participant.  
+
+The following graphs show the comparison between the participants’ voices and extracted source signals in time-domain.
+<img src="pic/source.png?raw=true"/>
+
+the extracted source signals resemble the actual signal in time-domain. This resemblance indicates that the ICA algorithm can extract sound source successfully. 
+
+However, the sound quality of the extracted signals is unstable, especially for the male speaker. The reason for this instability is suspected to be due to the low-frequency content of the male voice, which might be mixed up with the low-frequency background noise from the rooms' HVAC system. 
+
+## Multi Source Localization
+For one of the trails, during which two speakers are talking at the same time while the background music is playing, six microphones are used. Hence, we can extract up to five sources. Out of the five extracted sources, three of them contain useful audio content from the two-original speech. The localization result is shown below.
+
+|Extracted Signal|Planar Angle|Error|Elevation Angle|Error|
+|---|---|---|---|---|
+|Speaker A|	230|-5|	92|	3|
+|Speaker B|	56|	-56|99|	11|
+|Speaker A|	228|-3|	180|.-75|
+
+<img src="pic/loc.png?raw=true"/>
+
+The accuracy of the multi-source localization is highly dependent on the quality of the ICA extracted signal. When the extracted signals can be identified subjectively as one of the known sound sources, the error between the actual and the estimated angle are relatively small (less than 10 degrees). However, for example, the above trail doesn’t have a clear extracted signal for Speaker B. Thus, the error is relatively large. The elevation angle is calculated using the similar methodology. However, its error doesn’t correspond to the quality of the ICA algorithm. 
+
+
+
 
 
 
