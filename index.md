@@ -27,18 +27,18 @@ The first step for signal processing is using the Frequency-Domain Independent C
 For this project, the implemented MATLAB code for Short-Time Fourier Transform and Inverse Short-Time Fourier transform is open source on MathWorks written by Hristo Zhivomirov. For complex signal source separation, one of the function called jade incorporated from JF Cardoso. 
 The FDICA is conducted in the following sequence: first, the signals are transformed from time-domain to frequency-domain using STFT, Short-Time Fourier Transform. Then the signals are divided into narrow sub-bands, and the inverse of the mixing matrix A is optimized in each sub band. Finally, the results are reconstructed back from the smaller sub bands.
 
-##Source Localization Using TDOA
+## Source Localization Using TDOA
 Sound localization using TDOA is one of the most conventional ways to localize sound a source. Since the microphone array configures microphones such that the distance between any two is not zero, a specific sound signal will arrive at each microphone at a slightly different time. The incidence angle of a sound source could be estimated using this time difference, under the assumption that sound travels at a constant speed in air. 
 
-### Cross Correlation
+## Cross Correlation
 The accuracy of the time delay between signals from a pair of microphones is a key parameter to implement the above localization method. This time delay is found by performing a cross-correlation function in MATLAB.  
  
-### Multi-Source Localization
+## Multi-Source Localization
 Multi-source localization is achieved by implementing TDOA localization method to both extracted source signals and microphone signals.  
 After ICA, each extracted source signal is first compared with the four signals captured from the microphones on the mid-plane.  
 Whichever microphone signal that has the highest correlation with the extracted source means that this microphone is the closest to the source location. Then we use cross-correlation again to find the time delay between the extracted source and the adjacent microphones. Noted that for multi-source localization, the time delay of arrival is not simply the time delay between two microphone signals, but time delay between two microphone signals relative to the extracted source signal.  
 Similarly, for the vertical axis, an elevation angle for each sound source can be obtained. 
 <img src="pic/dsp.png?raw=true"/>
-  
+
 
 
