@@ -50,8 +50,8 @@ All the Matlab DSP function are availabel on to the [repository](https://github.
 ---
 ## Single Source Localization 
 The accuracy of the single-source localization method was obtained through experiments in which a speaker at a known location was recorded and compared to the calculated results.  
-|  Trail | Actual (degree) | Calculated (degree)| Difference (degree)  |
-|---|---|---|---|
+|Trail|Actual (degree)|Calculated (degree)|Difference (degree)|
+|-----|---------------|-------------------|-------------------|
 | 1  |  270  |  273.7  |  -3.7  |
 | 2  |  45  |  45  |  0   |
 | 3  |  160  |  154.3  |  5.7  |
