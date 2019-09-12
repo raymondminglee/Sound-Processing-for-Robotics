@@ -1,9 +1,11 @@
 logo: ./logo.png
 description: >
-  This project aims at improving current sound processing methods for 
-  robotics applications. We proposed using microphone array and several DSP techniques 
-  and could potentially allow future robot to differentiate and localize simultaneous sound sources to 
-  perform better in a complex sound environment. 
+  Human/Machine interaction has become more ubiquitous to daily life. 
+  People are good at focusing on a specific sound in a noisy environment, 
+  however, most robots can only react to one sound at a time. This project aims to improve 
+  sound localization and separation methods for robotics application, allowing robots to better  
+  act to simultaneous sound sources. 
+
   <br><br>
   <a href='https://raymondminglee.github.io'>Back to homepage</a>
 theme: jekyll-theme-minimal

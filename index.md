@@ -35,8 +35,10 @@ The accuracy of the time delay between signals from a pair of microphones is a k
  
 ### Multi-Source Localization
 Multi-source localization is achieved by implementing TDOA localization method to both extracted source signals and microphone signals.  
-After ICA, each extracted source signal is first compared with the four signals captured from the microphones on the mid-plane, i.e., mic 1 through 4.    
-Whichever microphone signal that has the highest correlation with the extracted source means that this microphone is the closest to the source location. Then we use cross-correlation again to find the time delay between the extracted source and the adjacent microphones. Noted that for multi-source localization, the time delay of arrival is not simply the time delay between two microphone signals, but time delay between two microphone signals relative to the extracted source signal.   
+After ICA, each extracted source signal is first compared with the four signals captured from the microphones on the mid-plane.  
+Whichever microphone signal that has the highest correlation with the extracted source means that this microphone is the closest to the source location. Then we use cross-correlation again to find the time delay between the extracted source and the adjacent microphones. Noted that for multi-source localization, the time delay of arrival is not simply the time delay between two microphone signals, but time delay between two microphone signals relative to the extracted source signal.  
 Similarly, for the vertical axis, an elevation angle for each sound source can be obtained. 
+<img src="pic/dsp.png?raw=true"/>
+  
 
 
