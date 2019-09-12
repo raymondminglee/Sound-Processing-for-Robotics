@@ -17,12 +17,13 @@ The main consideration in the apparatus design is the capability of capturing an
 * The microphones are arranged in an octahedron shape as shown in figure 1. Mic 1 through 4 are arranged in the mid-horizontal plane, and Mic 5& 6 are located on the vertical axis through the center of the mid-plane.
 * The data acquisition device used for this project is the TASCAM US1608 audio interface. It can support a simultaneous sampling frequency of 44.1kHz across all 16 input channels, including 8 XLR channels.  
 <img src="pic/mic.PNG?raw=true"/>  
-<br>
+<br><br>  
 Signal recording is performed using MATLAB Data Acquisition app, and individual microphone captured signal are stored unmixed and independent from the other signal for ten seconds session.
 
 # DSP
 ---
 The first step for signal processing is using the Frequency-Domain Independent Component Analysis(FDICA) to extract each of the individual sound from mixtures. And the second step is to find the incidence angle for each of the sound source through the TDOA method that uses the correlation between the extracted signal and the original signal.   
+
 ## Source Seperation using FDICA
 For this project, the implemented MATLAB code for Short-Time Fourier Transform and Inverse Short-Time Fourier transform is open source on MathWorks written by Hristo Zhivomirov. For complex signal source separation, one of the function called jade incorporated from JF Cardoso. 
 The FDICA is conducted in the following sequence: first, the signals are transformed from time-domain to frequency-domain using STFT, Short-Time Fourier Transform. Then the signals are divided into narrow sub-bands, and the inverse of the mixing matrix A is optimized in each sub band. Finally, the results are reconstructed back from the smaller sub bands.
@@ -39,8 +40,28 @@ The accuracy of the time delay between signals from a pair of microphones is a k
 Multi-source localization is achieved by implementing TDOA localization method to both extracted source signals and microphone signals.  
 After ICA, each extracted source signal is first compared with the four signals captured from the microphones on the mid-plane.  
 Whichever microphone signal that has the highest correlation with the extracted source means that this microphone is the closest to the source location. Then we use cross-correlation again to find the time delay between the extracted source and the adjacent microphones. Noted that for multi-source localization, the time delay of arrival is not simply the time delay between two microphone signals, but time delay between two microphone signals relative to the extracted source signal.  
-Similarly, for the vertical axis, an elevation angle for each sound source can be obtained. 
+Similarly, for the vertical axis, an elevation angle for each sound source can be obtained.  
+All the Matlab DSP function are availabel on to the [repository](https://github.com/raymondminglee/Sound-Processing-for-Robitics/code) 
 <img src="pic/dsp.png?raw=true"/>
+
+
+
+# Result
+---
+## Single Source Localization 
+The accuracy of the single-source localization method was obtained through experiments in which a speaker at a known location was recorded and compared to the calculated results.  
+|  Trail | Actual (degree) | Calculated (degree)| Difference (degree)  |
+|---|---|---|---|
+| 1  |  270  |  273.7  |  -3.7  |
+| 2  |  45  |  45  |  0   |
+| 3  |  160  |  154.3  |  5.7  |
+| 4  |  330  |  331  |  -1  |
+| 5  | 90  | 95.8  |  -5.9  |
+
+
+## Source Extraction Result
+
+
 
 
 
