@@ -2,11 +2,14 @@
 ---
 ## Overview
 This project aims at improving current sound processing methods for robotics applications. The improved methodology involves the usage of a microphone array and allows the robot to differentiate and localize simultaneous sound sources to perform better in a complex sound environment.  
+
 First, independent source signals from the recordings were extracted; then, the incidence angles of those sound sources were found. Several digital signal processing techniques are incorporated in the proposed method. Frequency-Domain Independent Component Analysis(FDICA) is used to extract independent sound sources from sound mixtures, and Time Delay of Arrival(TDOA) method is used to perform source localization. 
 
 ## Methodology
-Sound source separation is used to distinguish independent sound from a sound mixture, and it can be done using Independent Component Analysis (ICA).   
+Sound source separation is used to distinguish independent sound from a sound mixture, and it can be done using Independent Component Analysis (ICA).  
+
 ICA allows robots to extract and recover the different sound content of a particular source from the mixtures of signals captured from microphones. After separating each sound source, the location of those sources can be determined.  
+
 Sound localization aims at giving robots spatial instructions, such as what direction to turn its head or what position to walk towards.  This can be done using the Time Delay of Arrival (TDOA) method: since there are multiple microphones in an array, the sound intensities and phase information captured by an individual microphone is different from the others. The time difference of arrival on microphone pairs can be used to approximate corresponding angles of incidence, and the angles calculated can be used to approximate the possible source location.
 
 # Apparatus Design
@@ -38,8 +41,9 @@ The accuracy of the time delay between signals from a pair of microphones is a k
  
 ### Multi-Source Localization
 Multi-source localization is achieved by implementing TDOA localization method to both extracted source signals and microphone signals.  
-After ICA, each extracted source signal is first compared with the four signals captured from the microphones on the mid-plane.  
-Whichever microphone signal that has the highest correlation with the extracted source means that this microphone is the closest to the source location. Then we use cross-correlation again to find the time delay between the extracted source and the adjacent microphones.   
+
+After ICA, each extracted source signal is first compared with the four signals captured from the microphones on the mid-plane.Whichever microphone signal that has the highest correlation with the extracted source means that this microphone is the closest to the source location. Then we use cross-correlation again to find the time delay between the extracted source and the adjacent microphones.  
+ 
 All the Matlab DSP function are availabel on to the [repository](https://github.com/raymondminglee/Sound-Processing-for-Robitics/code) 
 <img src="pic/dsp.png?raw=true"/>
 
