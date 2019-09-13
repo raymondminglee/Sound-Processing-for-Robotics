@@ -39,8 +39,7 @@ The accuracy of the time delay between signals from a pair of microphones is a k
 ### Multi-Source Localization
 Multi-source localization is achieved by implementing TDOA localization method to both extracted source signals and microphone signals.  
 After ICA, each extracted source signal is first compared with the four signals captured from the microphones on the mid-plane.  
-Whichever microphone signal that has the highest correlation with the extracted source means that this microphone is the closest to the source location. Then we use cross-correlation again to find the time delay between the extracted source and the adjacent microphones. Noted that for multi-source localization, the time delay of arrival is not simply the time delay between two microphone signals, but time delay between two microphone signals relative to the extracted source signal.  
-Similarly, for the vertical axis, an elevation angle for each sound source can be obtained.  
+Whichever microphone signal that has the highest correlation with the extracted source means that this microphone is the closest to the source location. Then we use cross-correlation again to find the time delay between the extracted source and the adjacent microphones.   
 All the Matlab DSP function are availabel on to the [repository](https://github.com/raymondminglee/Sound-Processing-for-Robitics/code) 
 <img src="pic/dsp.png?raw=true"/>
 
@@ -81,12 +80,4 @@ For one of the trails, during which two speakers are talking at the same time wh
 
 <img src="pic/loc.PNG?raw=true"/>
 
-The accuracy of the multi-source localization is highly dependent on the quality of the ICA extracted signal. When the extracted signals can be identified subjectively as one of the known sound sources, the error between the actual and the estimated angle are relatively small (less than 10 degrees). However, for example, the above trail doesn’t have a clear extracted signal for Speaker B. Thus, the error is relatively large. The elevation angle is calculated using the similar methodology. However, its error doesn’t correspond to the quality of the ICA algorithm. 
-
-
-
-
-
-
-
-
+The accuracy of the multi-source localization is highly dependent on the quality of the ICA extracted signal. When the extracted signals can be identified subjectively as one of the known sound sources, the error between the actual and the estimated angle are relatively small (less than 10 degrees). 
