@@ -43,7 +43,7 @@ Multi-source localization is achieved by implementing TDOA localization method t
 
 After ICA, each extracted source signal is first compared with the four signals captured from the microphones on the mid-plane.Whichever microphone signal that has the highest correlation with the extracted source means that this microphone is the closest to the source location. Then we use cross-correlation again to find the time delay between the extracted source and the adjacent microphones.  
 
-All the Matlab DSP function are availabel on to the [repository](https://github.com/raymondminglee/Sound-Processing-for-Robitics/code) 
+All the Matlab DSP function are availabel on to the [repository](https://github.com/raymondminglee/Sound-Processing-for-Robotics/tree/master/code) 
 <img src="pic/dsp.png?raw=true"/>
 
 
@@ -87,9 +87,8 @@ The accuracy of the multi-source localization is highly dependent on the quality
 
 ## Comprehensive Report and Poster
 ---
-If you are interetsed, a comprehensive report, summary of our proposal to the school and presentation slides are avalible for dowenload.  
+If you are interetsed, a comprehensive report and a poster are avalible for dowenload.  
 
--[Proposal Summary](https://github.com/raymondminglee/Acoustic-Consulting/blob/master/doc/NEST%2Bm_summary.pdf)
--[Comprehensive Report](https://github.com/raymondminglee/Acoustic-Consulting/blob/master/doc/NEST%2Bm_Report.pdf)
--[Project's Slides](https://github.com/raymondminglee/Acoustic-Consulting/blob/master/doc/Presentsation.pdf)
+-[Comprehensive Report](https://github.com/raymondminglee/Sound-Processing-for-Robotics/blob/master/doc/Report.pdf)
+-[Poster](https://github.com/raymondminglee/Sound-Processing-for-Robotics/blob/master/doc/Poster.pdf)
 
