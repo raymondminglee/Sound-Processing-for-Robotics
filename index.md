@@ -43,7 +43,7 @@ Multi-source localization is achieved by implementing TDOA localization method t
 
 After ICA, each extracted source signal is first compared with the four signals captured from the microphones on the mid-plane.Whichever microphone signal that has the highest correlation with the extracted source means that this microphone is the closest to the source location. Then we use cross-correlation again to find the time delay between the extracted source and the adjacent microphones.  
 
-*All the Matlab DSP function are availabel on to the [repository]*(https://github.com/raymondminglee/Sound-Processing-for-Robotics/tree/master/code) 
+**All the Matlab DSP function are availabel on to the [repository](https://github.com/raymondminglee/Sound-Processing-for-Robotics/tree/master/code)** 
 <img src="pic/dsp.png?raw=true"/>
 
 
