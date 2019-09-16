@@ -20,8 +20,7 @@ The main consideration in the apparatus design is the capability of capturing an
 * The microphones are arranged in an octahedron shape as shown in figure 1. Mic 1 through 4 are arranged in the mid-horizontal plane, and Mic 5& 6 are located on the vertical axis through the center of the mid-plane.
 * The data acquisition device used for this project is the TASCAM US1608 audio interface. It can support a simultaneous sampling frequency of 44.1kHz across all 16 input channels, including 8 XLR channels.  
 <img src="pic/mic.PNG?raw=true"/>  
-<br><br>  
-Signal recording is performed using MATLAB Data Acquisition app, and individual microphone captured signal are stored unmixed and independent from the other signal for ten seconds session.
+<br>
 
 # DSP
 ---
@@ -43,7 +42,7 @@ The accuracy of the time delay between signals from a pair of microphones is a k
 Multi-source localization is achieved by implementing TDOA localization method to both extracted source signals and microphone signals.  
 
 After ICA, each extracted source signal is first compared with the four signals captured from the microphones on the mid-plane.Whichever microphone signal that has the highest correlation with the extracted source means that this microphone is the closest to the source location. Then we use cross-correlation again to find the time delay between the extracted source and the adjacent microphones.  
- 
+
 All the Matlab DSP function are availabel on to the [repository](https://github.com/raymondminglee/Sound-Processing-for-Robitics/code) 
 <img src="pic/dsp.png?raw=true"/>
 
@@ -85,3 +84,12 @@ For one of the trails, during which two speakers are talking at the same time wh
 <img src="pic/loc.PNG?raw=true"/>
 
 The accuracy of the multi-source localization is highly dependent on the quality of the ICA extracted signal. When the extracted signals can be identified subjectively as one of the known sound sources, the error between the actual and the estimated angle are relatively small (less than 10 degrees). 
+
+## Comprehensive Report and Poster
+---
+If you are interetsed, a comprehensive report, summary of our proposal to the school and presentation slides are avalible for dowenload.  
+
+-[Proposal Summary](https://github.com/raymondminglee/Acoustic-Consulting/blob/master/doc/NEST%2Bm_summary.pdf)
+-[Comprehensive Report](https://github.com/raymondminglee/Acoustic-Consulting/blob/master/doc/NEST%2Bm_Report.pdf)
+-[Project's Slides](https://github.com/raymondminglee/Acoustic-Consulting/blob/master/doc/Presentsation.pdf)
+
