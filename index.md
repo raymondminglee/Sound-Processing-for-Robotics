@@ -14,34 +14,34 @@ Sound localization aims at giving robots spatial instructions, such as what dire
 
 # Apparatus Design
 ---
-The main consideration in the apparatus design is the capability of capturing and transferring multi-channel audio signals to a computer. Thus, the microphone selected should have corresponding operating range to the human audible range, and the data acquisition unit should be able to sample all channels simultaneously.  
+The main consideration in the apparatus design is the capability of capturing and transferring multi-channel audio signals to a computer. Thus, the microphone selected should have a corresponding operating range to the human audible range, and the data acquisition unit should be able to sample all channels simultaneously.  
 
 * The microphone used is the Polsen OLM-19 model, which consists of an omnidirectional microphone, an external 5V power supply, and a 3.5mm audio jack. The audio jack is converted to a balanced XLR connection before connected the data acquisition device for noise reduction. The diameter of the microphone is only 50 mm, allowing the array to be easily portable.  
-* The microphones are arranged in an octahedron shape as shown in figure 1. Mic 1 through 4 are arranged in the mid-horizontal plane, and Mic 5& 6 are located on the vertical axis through the center of the mid-plane.
+* The microphones are arranged in an octahedron shape as shown in figure 1. Mic 1 through 4 is arranged in the mid-horizontal plane, and Mic 5& 6 are located on the vertical axis through the center of the mid-plane.
 * The data acquisition device used for this project is the TASCAM US1608 audio interface. It can support a simultaneous sampling frequency of 44.1kHz across all 16 input channels, including 8 XLR channels.  
 <img src="pic/mic.PNG?raw=true"/>  
 <br>
 
 # DSP
 ---
-The first step for signal processing is using the Frequency-Domain Independent Component Analysis(FDICA) to extract each of the individual sound from mixtures. And the second step is to find the incidence angle for each of the sound source through the TDOA method that uses the correlation between the extracted signal and the original signal.   
+The first step for signal processing is using the Frequency-Domain Independent Component Analysis(FDICA) to extract each of the individual sounds from mixtures. And the second step is to find the incidence angle for each of the sound sources through the TDOA method that uses the correlation between the extracted signal and the original signal.   
 
-## Source Seperation using FDICA
-For this project, the implemented MATLAB code for Short-Time Fourier Transform and Inverse Short-Time Fourier transform is open source on MathWorks written by Hristo Zhivomirov. For complex signal source separation, one of the function called jade incorporated from JF Cardoso. 
-The FDICA is conducted in the following sequence: first, the signals are transformed from time-domain to frequency-domain using STFT, Short-Time Fourier Transform. Then the signals are divided into narrow sub-bands, and the inverse of the mixing matrix A is optimized in each sub band. Finally, the results are reconstructed back from the smaller sub bands.
+## Source Separation using FDICA
+For this project, the implemented MATLAB code for Short-Time Fourier Transform and Inverse Short-Time Fourier transform is an open-source on MathWorks was written by Hristo Zhivomirov. For complex signal source separation, one of the functions called jade incorporated from JF Cardoso. 
+The FDIC is conducted in the following sequence: first, the signals are transformed from time-domain to frequency-domain using STFT, Short-Time Fourier Transform. Then the signals are divided into narrow sub-bands, and the inverse of the mixing matrix A is optimized in each sub-band. Finally, the results are reconstructed back from the smaller sub-bands.
 <img src="pic/ica.PNG?raw=true"/>
 
 ## Source Localization Using TDOA
-Sound localization using TDOA is one of the most conventional ways to localize sound a source. Since the microphone array configures microphones such that the distance between any two is not zero, a specific sound signal will arrive at each microphone at a slightly different time. The incidence angle of a sound source could be estimated using this time difference, under the assumption that sound travels at a constant speed in air. 
+Sound localization using TDOA is one of the most convenient ways to localize sound a source. Since the microphone array configures microphones such that the distance between any two is not zero, a specific sound signal will arrive at each microphone at a slightly different time. The incidence angle of a sound source could be estimated using this time difference, under the assumption that sound travels at a constant speed in air. 
 <img src="pic/tdoa.PNG?raw=true"/>
 
-### Cross Correlation
+### Cross-Correlation
 The accuracy of the time delay between signals from a pair of microphones is a key parameter to implement the above localization method. This time delay is found by performing a cross-correlation function in MATLAB.  
  
 ### Multi-Source Localization
-Multi-source localization is achieved by implementing TDOA localization method to both extracted source signals and microphone signals.  
+Multi-source localization is achieved by implementing the TDOA localization method to both extracted source signals and microphone signals.  
 
-After ICA, each extracted source signal is first compared with the four signals captured from the microphones on the mid-plane.Whichever microphone signal that has the highest correlation with the extracted source means that this microphone is the closest to the source location. Then we use cross-correlation again to find the time delay between the extracted source and the adjacent microphones.  
+After ICA, each extracted source signal is first compared with the four signals captured from the microphones on the mid-plane. Whichever microphone signal that has the highest correlation with the extracted source means that this microphone is the closest to the source location. Then we use cross-correlation again to find the time delay between the extracted source and the adjacent microphones.  
 
 **All the Matlab DSP function are availabel on to the [repository](https://github.com/raymondminglee/Sound-Processing-for-Robotics/tree/master/code)** 
 <img src="pic/dsp.png?raw=true"/>
@@ -63,23 +63,23 @@ The accuracy of the single-source localization method was obtained through exper
 
 
 ## Source Extraction Result
-For source extractions, a total of 5 sources were estimated. For each extracted source signal, we listened and subjectively identified which speaker the sound best represents.For the trail shown below, Speaker A is a female participant, and speaker B is a male participant.  
+For source extractions, a total of 5 sources were estimated. For each extracted source signal, we listened and subjectively identified which speaker the sound best represents. For the trail shown below, Speaker A is a female participant, and speaker B is a male participant.  
 
 The following graphs show the comparison between the participants’ voices and extracted source signals in time-domain.
 <img src="pic/source.PNG?raw=true"/>
 
-the extracted source signals resemble the actual signal in time-domain. This resemblance indicates that the ICA algorithm can extract sound source successfully. 
+the extracted source signals resemble the actual signal in time-domain. This resemblance indicates that the ICA algorithm can extract the sound source successfully. 
 
 However, the sound quality of the extracted signals is unstable, especially for the male speaker. The reason for this instability is suspected to be due to the low-frequency content of the male voice, which might be mixed up with the low-frequency background noise from the rooms' HVAC system. 
 
-## Multi Source Localization
+## Multi-Source Localization
 For one of the trails, during which two speakers are talking at the same time while the background music is playing, six microphones are used. Hence, we can extract up to five sources. Out of the five extracted sources, three of them contain useful audio content from the two-original speech. The localization result is shown below.
 
 |Extracted Signal|Planar Angle|Error|Elevation Angle|Error|
 |---|---|---|---|---|
-|Speaker A|	230|-5|	92|	3|
-|Speaker B|	56|	-56|99|	11|
-|Speaker A|	228|-3|	180|.-75|
+|Speaker A|    230|-5|    92|    3|
+|Speaker B|    56|    -56|99|    11|
+|Speaker A|    228|-3|    180|.-75|
 
 <img src="pic/loc.PNG?raw=true"/>
 
@@ -87,7 +87,7 @@ The accuracy of the multi-source localization is highly dependent on the quality
 
 ## Comprehensive Report and Poster
 ---
-If you are interetsed, a comprehensive report and a poster are avalible for dowenload.  
+If you are interested, a comprehensive report and a poster are available for download.  
 
 -[Comprehensive Report](https://github.com/raymondminglee/Sound-Processing-for-Robotics/blob/master/doc/Report.pdf)
 -[Poster](https://github.com/raymondminglee/Sound-Processing-for-Robotics/blob/master/doc/Poster.pdf)
